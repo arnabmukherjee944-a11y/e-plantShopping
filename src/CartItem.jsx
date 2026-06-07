@@ -57,7 +57,7 @@ const CartItem = ({ onContinueShopping }) => {
     return (cost * item.quantity).toFixed(2);
   };
   const handleCheckoutShopping = () => {
-    alert('Functionality to be added for future reference');
+    alert('Coming Soon');
   };
   
 
