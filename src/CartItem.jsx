@@ -18,6 +18,7 @@ const CartItem = ({ onContinueShopping }) => {
 
     return total.toFixed(2);
   };
+  // Calculate total number of plants/items in the cart
   const calculateTotalPlants = () => {
     return cart.reduce(
       (total, item) => total + item.quantity,
@@ -30,7 +31,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
 
-
+// Increase quantity of a cart item by 1
   const handleIncrement = (item) => {
     dispatch(
       updateQuantity({
@@ -39,7 +40,7 @@ const CartItem = ({ onContinueShopping }) => {
       })
     );
   };
-
+// Decrease quantity of a cart item or remove it if quantity reaches 0
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
       dispatch(
@@ -52,16 +53,17 @@ const CartItem = ({ onContinueShopping }) => {
       dispatch(removeItem(item.name));
     }
   };
-
+// Remove an item completely from the cart
   const handleRemove = (item) => {
     dispatch(removeItem(item.name));
   };
-
-  // Calculate total cost based on quantity for an item
+  
+// Calculate subtotal for a single cart item
   const calculateTotalCost = (item) => {
     const cost = parseFloat(item.cost.substring(1));
     return (cost * item.quantity).toFixed(2);
   };
+  // Placeholder checkout functionality
   const handleCheckoutShopping = () => {
     alert('Coming Soon');
   };
