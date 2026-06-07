@@ -18,6 +18,12 @@ const CartItem = ({ onContinueShopping }) => {
 
     return total.toFixed(2);
   };
+  const calculateTotalPlants = () => {
+    return cart.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+  };
 
   const handleContinueShopping = (e) => {
    onContinueShopping(e);
@@ -62,9 +68,16 @@ const CartItem = ({ onContinueShopping }) => {
   
 
   return (
-    <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
-      <div>
+            <div className="cart-container">
+          <h2 style={{ color: 'black' }}>
+            Total Cart Amount: ${calculateTotalAmount()}
+          </h2>
+
+          <h3 style={{ color: 'black' }}>
+            Total Number of Plants: {calculateTotalPlants()}
+          </h3>
+
+          <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
             <img className="cart-item-image" src={item.image} alt={item.name} />
