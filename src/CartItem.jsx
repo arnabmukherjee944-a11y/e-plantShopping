@@ -67,7 +67,21 @@ const CartItem = ({ onContinueShopping }) => {
   const handleCheckoutShopping = () => {
     alert('Coming Soon');
   };
-  
+  if (cart.length === 0) {
+  return (
+    <div className="cart-container">
+      <h2>Your cart is empty</h2>
+
+      <button
+        className="get-started-button"
+        onClick={(e) => handleContinueShopping(e)}
+      >
+        Continue Shopping
+      </button>
+    </div>
+  );
+}
+
 
   return (
             <div className="cart-container">
